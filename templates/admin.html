@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% include 'navbar.html' %}
+
+{% block content %}
+<h1 class="text-center mt-4 mb-1">Admin View</h1>
+<div class="search-results mt-3 text-center">
+<!-- all categories and their nominees -->
+  {% for category, results in nominee_results.items() %}
+  <!-- category title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card mb-1">
+        <div class="card-header bg-secondary text-white">
+          <h4 class="mb-0">{{ category }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if results %}
+  <!-- headers -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mb-1">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-3 my-auto text-center"><strong>Nominee</strong></div>
+              <div class="musicname col-2 my-auto text-center"><strong>Song</strong></div>
+              <div class="col-2 text-center score my-auto"><strong>Votes</strong></div>
+              <div class="col-2"></div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- nominees in each category -->
+    {% for result in results %}
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mb-1">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-3 my-auto text-center">{{ result.nomineename }}</div>
+              <div class="musicname col-2 my-auto text-center">{{ result.musicname }}</div>
+              <div class="col-2 text-center score my-auto">{{ result.total_votes }}</div>
+              <button class="btn btn-danger delete-btn col-2" data-nid="{{ result.nid }}"><i class="fas fa-trash"></i></button>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+  <!-- if no results -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mb-1">
+          <div class="card-body">
+            No results found.
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="mt-5"></div>
+  {% endfor %}
+
+      <!-- add new nominee -->
+      <div class="row mt-3">
+        <p class="px-5"><strong>Add new nominee</strong></p>
+        <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-5"><input type="text" class="form-control" placeholder="Name"></div>
+                    <div class="col-4"><input type="text" class="form-control" placeholder="Country"></div>
+                    <div class="col-3"><input type="text" class="form-control" placeholder="Status"></div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><input type="text" class="form-control" placeholder="Music"></div>
+                    <div class="col-4"><input type="text" class="form-control" placeholder="Award Category"></div>
+                    <div class="col-2"><input type="text" class="form-control" placeholder="Year"></div>
+                    <button class="btn btn-info add-btn col-1 ml-2"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+

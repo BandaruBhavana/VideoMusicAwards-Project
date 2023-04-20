@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% include 'navbar.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <h3 class="text-center">Sign In</h3>
+            <form action="{{ url_for('signin') }}" method="POST">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" id="email" name="email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" />
+                </div>
+
+                <input type="submit" class="btn btn-primary justify-content-center" value="Sign In" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

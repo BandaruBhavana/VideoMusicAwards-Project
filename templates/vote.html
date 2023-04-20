@@ -1,0 +1,64 @@
+{% block content %}
+<h1 class="text-center mt-4 mb-1">Vote for the VMAs</h1>
+<div class="search-results mt-3 text-center">
+  {% for category, results in nominee_results.items() %}
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card mb-1">
+        <div class="card-header bg-secondary text-white">
+          <h4 class="mb-0">{{ category }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if results %}
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mb-1">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-3 my-auto text-center"><strong>Nominee</strong></div>
+              <div class="musicname col-2 my-auto text-center"><strong>Song</strong></div>
+              <div class="col-2 text-center score my-auto"><strong>Votes</strong></div>
+              <div class="col-2"></div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% for result in results %}
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mb-1">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-3 my-auto text-center">{{ result.nomineename }}</div>
+              <div class="musicname col-2 my-auto text-center">{{ result.musicname }}</div>
+              <div class="col-2 text-center score my-auto">{{ result.total_votes }}</div>
+              <button class="btn btn-info vote-btn col-2 {{ disabled }}" data-nid="{{ result.nid }}" data-category="{{ category }}"><i class="fas fa-chevron-up"></i></button>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="mt-5"></div>
+  {% else %}
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mb-1">
+          <div class="card-body">
+            No results found.
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% endfor %}
+</div></div>
+{% endblock %}
