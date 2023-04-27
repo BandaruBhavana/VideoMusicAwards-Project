@@ -91,5 +91,14 @@
         </div>
         </div>
     </div>
+    {% if session.get('user').get('role') == 'admin' %}
+    <h3>Change user role to admin:</h3>
+    <form method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <input type="submit" value="Change role">
+    </form>
+{% endif %}
+
 {% endblock %}
 

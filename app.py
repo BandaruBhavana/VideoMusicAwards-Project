@@ -112,6 +112,13 @@ def admin():
 
             nominee_obj.cur.execute(query, (nomineename, nomineecountry, status, musicname, awardcategory, nominatedyear))
 
+        # change role of user to admin
+        elif request.form.get('username'):
+            username = request.form.get('username')
+            sql = "UPDATE vmas_user SET role='admin' WHERE username=%s;"
+            nominee_obj.cur.execute(sql, (username,))
+            nominee_obj.conn.commit()
+
     # admin page stuff
     if 'user' in session:
         if session.get('user').get('role') == 'admin':
@@ -120,6 +127,7 @@ def admin():
             return render_template('home.html', nominee_results=nominee_results_dict, disabled="")
     else:
         return render_template('home.html', nominee_results=nominee_results_dict, disabled="disabled")
+
 
 
 
