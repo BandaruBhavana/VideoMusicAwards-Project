@@ -194,5 +194,29 @@ def send_static(path):
       
   
 if __name__ == '__main__':
-   app.run(host='127.0.0.1',debug=True)   
-   
+   app.run(host='127.0.0.1',debug=True)  
+
+
+
+@app.route('/')
+def home():
+    if request.method == 'GET':
+        return render_template('videos.html')
+    
+    # get the results of the votes
+    nominee_obj = nominee()
+    nominee_results_dict = nominee_obj.getVotes()
+
+    # disable or enable voting based on whether user is signed in 
+    if 'user' in session:
+        return render_template('home.html', nominee_results=nominee_results_dict, disabled="")
+    else:
+        return render_template('home.html', nominee_results=nominee_results_dict, disabled="disabled")
+
+
+
+@app.route('/videos')
+def view_videos():
+    return render_template('videos.html')
+
+
