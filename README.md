@@ -28,4 +28,4 @@ Highlighted Custom SELECT Queries
 In the nominee class, the getNomineeById function is a custom select query that fetches a single nominee from the database based on their ID. The getNominees function is another custom select query that fetches all nominees from the database. In the vote class, the getVotes function is a custom select query that fetches the number of votes each nominee has received from the database, also in the user class, the checkSignedIn function is a custom select query that fetches a single user from the database based on their email and password also the getUsers function is another custom select query that fetches all users from the database.
 
 SQL Schema File
-The schema.sql file defines the SQL schema used by the VMA voting website. This file contains SQL statements that create the three tables: users, videos, and votes. The file also contains SQL statements to define the relationships between the tables.
+
