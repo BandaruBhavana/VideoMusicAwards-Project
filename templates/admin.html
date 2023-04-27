@@ -3,7 +3,7 @@
 {% include 'navbar.html' %}
 
 {% block content %}
-<h1 class="text-center mt-4 mb-1">Admin View</h1>
+<h1 class="text-center mt-4 mb-1">Admin View </h1>
 <div class="search-results mt-3 text-center">
 <!-- all categories and their nominees -->
   {% for category, results in nominee_results.items() %}
@@ -91,14 +91,16 @@
         </div>
         </div>
     </div>
+    <div>
     {% if session.get('user').get('role') == 'admin' %}
-    <h3>Change user role :</h3>
+    <h3>Update user role :</h3>
     <form method="POST">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username">
         <input type="submit" value="upgrade to admin">
     </form>
 {% endif %}
+</div>
 
 {% endblock %}
 

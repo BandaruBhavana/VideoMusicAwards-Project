@@ -61,4 +61,19 @@
   {% endif %}
   {% endfor %}
 </div></div>
+
+{% for category, results in nominee_results.items() %}
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card mb-1">
+        <div class="card-header bg-secondary text-white">
+          <h4 class="mb-0">{{ category }}</h4>
+          <a href="/videos?category={{ category }}" class="btn btn-info ml-3">Watch Videos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  ...
+{% endfor %}
+
 {% endblock %}
