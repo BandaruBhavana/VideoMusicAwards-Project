@@ -9,6 +9,8 @@ With this web application there is the user login and the admin login,
 | curt@gmail.com       | 12345    | Admin       |
 | cheatak@clarkson.edu | 12345    | User/Viewer |
 | bandarb@clarkson.edu | 12345    | Admin       |
+
+
 the user/viewer can only view and vote, the admin can add a nominee and delete a nominee(can also place a vote). 
 
 Purpose
