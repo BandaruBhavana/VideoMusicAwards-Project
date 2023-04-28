@@ -8,7 +8,7 @@ With this web application there is the user login and the admin login,
 |----------------------|----------|-------------|
 | curt@gmail.com       | 12345    | Admin       |
 | cheatak@clarkson.edu | 12345    | User/Viewer |
-
+| bandarb@clarkson.edu | 12345    | Admin       |
 the user/viewer can only view and vote, the admin can add a nominee and delete a nominee(can also place a vote). 
 
 Purpose
@@ -26,5 +26,8 @@ Highlighted Custom SELECT Queries
 
 In the nominee class, the getNomineeById function is a custom select query that fetches a single nominee from the database based on their ID. The getNominees function is another custom select query that fetches all nominees from the database. In the vote class, the getVotes function is a custom select query that fetches the number of votes each nominee has received from the database, also in the user class, the checkSignedIn function is a custom select query that fetches a single user from the database based on their email and password also the getUsers function is another custom select query that fetches all users from the database.
 
-SQL Schema File
+SQL Relational Schema
+
+<img width="331" alt="Screenshot 2023-04-27 221748" src="https://user-images.githubusercontent.com/111446938/235038604-a0a62ba6-b095-414b-836e-19ef6c6912d6.png">
+
 
